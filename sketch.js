@@ -1,4 +1,4 @@
-var starImg, fairyImg, bgImg;
+var starImg, starImg2, fairyImg, bgImg;
 var fairy , fairyVoice;
 var star, starBody;
 
@@ -10,6 +10,7 @@ const Body = Matter.Body;
 function preload()
 {
 	starImg = loadImage("images/star.png");
+	starImg2 = loadImage("images/starImage.png");
 	fairyImg = loadAnimation("images/fairyImage1.png","images/fairyImage2.png");
 	bgImg = loadImage("images/starNight.png");
 	fairyVoice = loadSound("sound/JoyMusic.mp3");
@@ -68,6 +69,9 @@ function keyPressed() {
 	}
 
 	if(keyCode === DOWN_ARROW){
+		star.addImage("super_star", starImg2);
+		star.changeImage("super_star", starImg2);
+		star.scale = 0.05;
 		star.x = starBody.position.x;
 		star.y = starBody.position.y;
 		Matter.Body.setStatic(starBody , false);
